@@ -1,5 +1,12 @@
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 2px;
+body {
+    background-color: white;
+}
+h1 {
+    color: black;
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+}
+p {
+    color: black;
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    font-size: 12;
 }
