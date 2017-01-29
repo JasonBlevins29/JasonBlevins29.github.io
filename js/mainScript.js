@@ -1,11 +1,12 @@
 // set the dimensions and margins of the graph
-var margin = {top: 20, right: 20, bottom: 30, left: 50},
+var margin = {top: 20, right: 20, bottom: 50, left: 60},
 width = 1200 - margin.left - margin.right,
 height = 800 - margin.top - margin.bottom;
 
 // set the ranges
 var x = d3.scaleLinear().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
+var radiusScale = d3.scaleLinear().domain([0,1000]).range([1, 5]);
 
 
 // append the svg obgect to the body of the page
@@ -40,9 +41,10 @@ d3.csv("../data/image1/simplified.csv", function(error, data) {
   svg.selectAll("dot")
       .data(data)
     .enter().append("circle")
-      .attr("r", 2)
+      .attr("r", function(d) { return radiusScale(d.density); } )
       .attr("cx", function(d) { return x(d.density); })
       .attr("cy", function(d) { return y(d.gop); });
+
 
   // Add the X Axis
   svg.append("g")
@@ -71,4 +73,23 @@ d3.csv("../data/image1/simplified.csv", function(error, data) {
       .attr("stroke", "red")
       .attr("stroke-width", 5)
       .attr("opacity", .5);
+
+
+
+    svg.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left)
+    .attr("x",0 - (height / 2))
+    .attr("dy", "1em")
+    .style("text-anchor", "middle")
+    .text("Percent Repulican Vote");
+
+    svg.append("text")
+     .attr("transform",
+           "translate(" + (width/2) + " ," +
+                          (height + margin.top + 20) + ")")
+     .style("text-anchor", "middle")
+     .text("Population Density: People Per Square Mile");
+
+
 });
