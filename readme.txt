@@ -1,1 +1,0 @@
-So far I have gathered data from the election and the US census from 2010 and made a slightly interactive visualiztion in d3.
