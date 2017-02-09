@@ -1,0 +1,4 @@
+createScatterPlot();
+createLineChart();
+createNewScatterPlot();
+createBarChart();

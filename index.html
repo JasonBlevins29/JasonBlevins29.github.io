@@ -4,22 +4,112 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Who Vote For What?</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+    <title>Analyzing 2016 US Presidential Election Demographics</title>
   </head>
   <body>
-    <script src="lib/d3.min.js"></script>
+    <div class="container">
+
     <!DOCTYPE html>
-    <h1>Who voted for who?</h1>
-    <p>Question: Based on the popular red and blue county maps such as
-       <A href="http://i0.wp.com/metrocosm.com/wp-content/uploads/2016/11/election-2016-county-map.png">this one</A>,
-       I wondered if it was the case that population denisty and the percentage that a specific county voted for Trump
-       was inversly correlated.
+    <h1>Analyzing the 2016 US Presidential Election</h1>
+    <p> After the suprising result of the 2016 US presidential election,
+        many people were left dumbfounded, seekng answers to how President
+        Trump got elected. Many asked: Who voted for him and why?  The
+        following series of visualizations to seeks to find some correlations
+        and patterns between election results and public demographic data.</p>
+
+    <p>
+        What prompted me to choose this data was the commonly seen red and blue maps.
+       <a href="http://i0.wp.com/metrocosm.com/wp-content/uploads/2016/11/election-2016-county-map.png">
+         This map</A> in paticular stood out to me as the number of counites that President Trump
+         won was great in proportion to Hillary Clinton. I noticed that the few counties
+         that Hillary Clinton won were near large metropoliton areas and I created the
+         following visualization to answer the question: "Is the population density
+         of a county correlated their tendency to vote for one Candidate or another?".
      </p>
+     <h3>Percent Republican Vote Against Population Denisty Per County</h3>
+     <h5>Hover over dots for more information on that county.</h5>
+     <div id="scatterPlot"></div>
+
+    <p>Judging by the scatterplot above, this seems to be the case.
+      It is apparant that the less dense counties, clustered at the top
+      left of the graph voted in a high percentage for President Trump.</p>
+
+    <p>One explination for this trend is that the small rural counties have been
+        negatively affected economically and have been left behind in the service
+        and technology based economy of the 21st century economy. In order to
+        verify if this notion was correct, I decided to plot the unemploymentRate
+        since 1950 for the top counties that voted for President Trump and Hillary Clinton
+        over time. The data was gathered from the US Census.</p>
+
+      <h3>Unemployment of Most Lopsided Counties Over Time</h3>
+      <h5>Republican counties in red. Democrat counties in blue. Black line is national average.</h5>
+      <div id="lineChart"></div>
+      <p> This graph was dificult to understand, so I created another one that was similar,
+        but instead of plotting absolute unemployment, I plotted the resepctive unemployment
+        of the counties as it relates to the national average. In this graph, when the line
+        for a specific county is below the black line, the unemployment is below the national
+        average for that specific year.
+      <h3>Adjusted Unemployment of Most Lopsided Counties Over Time.</h3>
+      <div id="lineChartV2"></div>
+
+      <p> There did not seem to be a clear trend based on this chart. What I did
+        notice that seven out of the ten most lopsided counties had higher
+        unemployment than average. This made me wonder: "Does high unemployment
+        drive counties to vote extreme one way or another?".</p>
+        <p>In order to answer this question, I made a quick scatter plot with the
+          y axis being unemployment rate and the x axis being percent voted for
+          President Trump. If the answer to the previous question is yes, we would
+          expect to see a U shape with high unemployment clustered near the outsides
+          and low in the middle. This was not the case.</p>
+
+        <h3>Unemployment Against Percent GOP Vote.</h3>
+        <h5>Republican counties in red. Democrat counties in blue. Black line is national average.</h5>
+        <div id="testScatterPlot"></div>
+        <p>The trend that seemed to appear was that as the percentage of republican
+          vote increased, unemployment decreased. This became my next qeuestion.
+          In order to answer this question, I averaged the unemployment rate
+          for counties, grouped into deciles. </p>
+
+      <h3>Unemployment for decile voted for President Trump.</h3>
+      <div id="barChart"></div>
+
+      <p>This visualization confirms the idea that counties with a higher percentage voted for Trump, have
+        lower unemployment. This is somewhat inconsistent with the belief that I had that
+        Trump had gained large support in ares that had high unemployment and that
+        had been left behind in the economic recovery following the 2008 recession.
+        In fact, the highest unemployment rate is correlated with counties where
+        Trump only recieved 10-20 percent of the vote.</p>
+
+      <p>This series of visualiztions both confirms and denies some paticular
+      beliefes that I, and likely others, held about voter demographics. I found
+      scatter plots very useful in viewing a very large amount of data and finding
+      trends for further analysis. The scatter plot seems to preserve the most
+      data from a data set, as long as the number of variables is limited to two.
+      However, as in the case of the second scatter plot, a trend is not as
+      noticeable as it is in a simplier visualiztion such as a bar chart. By splitting
+      the data that was represented in the scatter plot into catagories, a clear trend
+      can be shown. These visualizations as a whole show that different techniques are
+      appropriate for showing different relationships and different data sets.
+      </p>
+
+    <p>The data I used for these visualizations was a combination of datasets from
+    the <a href="http://www.census.gov/data.html">United States Censuses, dating back from 1950 to 2010</a>, <a href="https://www.census.gov/programs-surveys/acs/">United States Census
+    5-year community estimates</a> and <a href="http://townhall.com/election/2016/president/">election data that was from townhall.com</a> and
+    scraped and <a href="https://github.com/tonmcg/County_Level_Election_Results_12-16">compiled by Tony McGovern.</a></p>
+    </div>
 
 
+    <a href="link">text</a>
     <!--Scripts-->
-    <script src="js/mainScript.js"></script>
-    <p>Judging by the scatterplot above, this seems to be the case. It is apparant that the less dense counted, clustered at the top
-    left of the graph voted in a high percentage for President Trump.</p>
+    <script src="lib/d3.min.js"></script>
+    <script src="lib/jquery-3.1.1.min.js"></script>
+    <script src="js/d3-legend.js"></script>
+    <script src="js/scatterPlot.js"></script>
+    <script src="js/lineChart.js"></script>
+    <script src="js/newScatterPlot.js"></script>
+    <script src="js/barChart.js"></script>
+    <script src="js/visualMain.js"></script>
   </body>
 </html>

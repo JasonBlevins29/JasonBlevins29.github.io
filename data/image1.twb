@@ -1,0 +1,1001 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10100.16.1223.0056                               -->
+<workbook source-build='10.1.3 (10100.16.1223.0056)' source-platform='mac' version='10.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='countyFipsCombined.csv+ (Multiple Connections)' inline='true' name='federated.1anjffh1p0sdo1190p7lr0i6l8ms' version='10.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='countyFipsCombined' name='textscan.1kqpr8s1h90w7z17tnbuq01f7j45'>
+            <connection class='textscan' directory='/Users/jason/Developer/ECS163/homework1/data/image1' filename='countyFipsCombined.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='resultsSimplifiedCombined' name='textscan.0ru8p5m0w59bkg16k8kfe1du3x5c'>
+            <connection class='textscan' directory='/Users/jason/Developer/ECS163/homework1/data/image1' filename='resultsSimplifiedCombined.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[countyFipsCombined.csv].[combinedName]' />
+              <expression op='[resultsSimplifiedCombined.csv].[county and state]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.1kqpr8s1h90w7z17tnbuq01f7j45' name='countyFipsCombined.csv' table='[countyFipsCombined#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='state' ordinal='0' />
+              <column datatype='integer' name='stateFips' ordinal='1' />
+              <column datatype='integer' name='countyFips' ordinal='2' />
+              <column datatype='string' name='name' ordinal='3' />
+              <column datatype='string' name='code' ordinal='4' />
+              <column datatype='string' name='combinedName' ordinal='5' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0ru8p5m0w59bkg16k8kfe1du3x5c' name='resultsSimplifiedCombined.csv' table='[resultsSimplifiedCombined#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='votes_dem' ordinal='0' />
+              <column datatype='integer' name='votes_gop' ordinal='1' />
+              <column datatype='integer' name='total_votes' ordinal='2' />
+              <column datatype='real' name='per_dem' ordinal='3' />
+              <column datatype='real' name='per_gop' ordinal='4' />
+              <column datatype='integer' name='diff' ordinal='5' />
+              <column datatype='real' name='per_point_diff' ordinal='6' />
+              <column datatype='string' name='state_abbr' ordinal='7' />
+              <column datatype='string' name='county_name' ordinal='8' />
+              <column datatype='string' name='county and state' ordinal='9' />
+            </columns>
+          </relation>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[state]</local-name>
+            <parent-name>[countyFipsCombined.csv]</parent-name>
+            <remote-alias>state</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stateFips</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[stateFips]</local-name>
+            <parent-name>[countyFipsCombined.csv]</parent-name>
+            <remote-alias>stateFips</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>countyFips</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[countyFips]</local-name>
+            <parent-name>[countyFipsCombined.csv]</parent-name>
+            <remote-alias>countyFips</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[name]</local-name>
+            <parent-name>[countyFipsCombined.csv]</parent-name>
+            <remote-alias>name</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[code]</local-name>
+            <parent-name>[countyFipsCombined.csv]</parent-name>
+            <remote-alias>code</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>combinedName</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[combinedName]</local-name>
+            <parent-name>[countyFipsCombined.csv]</parent-name>
+            <remote-alias>combinedName</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[countyFipsCombined.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='record-delimiter'>&quot;\\r&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>votes_dem</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[votes_dem]</local-name>
+            <parent-name>[resultsSimplifiedCombined.csv]</parent-name>
+            <remote-alias>votes_dem</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>votes_gop</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[votes_gop]</local-name>
+            <parent-name>[resultsSimplifiedCombined.csv]</parent-name>
+            <remote-alias>votes_gop</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_votes</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[total_votes]</local-name>
+            <parent-name>[resultsSimplifiedCombined.csv]</parent-name>
+            <remote-alias>total_votes</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>per_dem</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[per_dem]</local-name>
+            <parent-name>[resultsSimplifiedCombined.csv]</parent-name>
+            <remote-alias>per_dem</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>per_gop</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[per_gop]</local-name>
+            <parent-name>[resultsSimplifiedCombined.csv]</parent-name>
+            <remote-alias>per_gop</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>diff</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[diff]</local-name>
+            <parent-name>[resultsSimplifiedCombined.csv]</parent-name>
+            <remote-alias>diff</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>per_point_diff</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[per_point_diff]</local-name>
+            <parent-name>[resultsSimplifiedCombined.csv]</parent-name>
+            <remote-alias>per_point_diff</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_abbr</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[state_abbr]</local-name>
+            <parent-name>[resultsSimplifiedCombined.csv]</parent-name>
+            <remote-alias>state_abbr</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>county_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[county_name]</local-name>
+            <parent-name>[resultsSimplifiedCombined.csv]</parent-name>
+            <remote-alias>county_name</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>county and state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[county and state]</local-name>
+            <parent-name>[resultsSimplifiedCombined.csv]</parent-name>
+            <remote-alias>county and state</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[resultsSimplifiedCombined.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Code' datatype='string' name='[code]' role='dimension' type='nominal' />
+      <column caption='Combined Name' datatype='string' name='[combinedName]' role='dimension' type='nominal' />
+      <column caption='County And State' datatype='string' name='[county and state]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column caption='County Fips' datatype='integer' name='[countyFips]' role='measure' type='quantitative' />
+      <column caption='County Name' datatype='string' name='[county_name]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column caption='Diff' datatype='integer' name='[diff]' role='measure' type='quantitative' />
+      <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
+      <column caption='Per Dem' datatype='real' name='[per_dem]' role='measure' type='quantitative' />
+      <column caption='Per Gop' datatype='real' name='[per_gop]' role='measure' type='quantitative' />
+      <column caption='Per Point Diff' datatype='real' name='[per_point_diff]' role='measure' type='quantitative' />
+      <column caption='State Fips' datatype='integer' name='[stateFips]' role='measure' type='quantitative' />
+      <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='State Abbr' datatype='string' name='[state_abbr]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Total Votes' datatype='integer' name='[total_votes]' role='measure' type='quantitative' />
+      <column caption='Votes Dem' datatype='integer' name='[votes_dem]' role='measure' type='quantitative' />
+      <column caption='Votes Gop' datatype='integer' name='[votes_gop]' role='measure' type='quantitative' />
+      <extract count='-1' enabled='true' units='records'>
+        <connection class='dataengine' dbname='/Users/jason/Documents/My Tableau Repository/Datasources/countyFipsCombined.csv+ (Multiple Connections).tde' schema='Extract' tablename='Extract' update-time='01/29/2017 03:18:09 AM'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <calculations>
+            <calculation column='[Number of Records]' formula='1' />
+          </calculations>
+          <refresh>
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='3111' timestamp-start='2017-01-29 03:18:09.565' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Number of Records</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[Number of Records]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Number of Records</remote-alias>
+              <ordinal>0</ordinal>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>3111.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>1.0</statistic>
+                <statistic aggregation='Min' datatype='integer'>1</statistic>
+                <statistic aggregation='Max' datatype='integer'>1</statistic>
+                <statistic aggregation='Stdev' datatype='real'>0.0</statistic>
+                <statistic aggregation='StdevP' datatype='real'>0.0</statistic>
+                <statistic aggregation='Var' datatype='real'>0.0</statistic>
+                <statistic aggregation='VarP' datatype='real'>0.0</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+                <statistic aggregation='Median' datatype='integer'>1</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>3111.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>code</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[code]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>code</remote-alias>
+              <ordinal>1</ordinal>
+              <family>countyFipsCombined.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <scale>1</scale>
+              <width>1073741823</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;C7&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;H6&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+                <statistic aggregation='Median' datatype='string'>&quot;H1&quot;</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>0</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>combinedName</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[combinedName]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>combinedName</remote-alias>
+              <ordinal>2</ordinal>
+              <family>countyFipsCombined.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3111</approx-count>
+              <scale>1</scale>
+              <width>1073741823</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;Abbeville County,SC&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;Ziebach County,SD&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (unique)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>county and state</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[county and state]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>county and state</remote-alias>
+              <ordinal>3</ordinal>
+              <family>resultsSimplifiedCombined.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3111</approx-count>
+              <scale>1</scale>
+              <width>1073741823</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;Abbeville County,SC&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;Ziebach County,SD&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (unique)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>countyFips</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[countyFips]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>countyFips</remote-alias>
+              <ordinal>4</ordinal>
+              <family>countyFipsCombined.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>300</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>320979.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>103.17550626808101</statistic>
+                <statistic aggregation='Min' datatype='integer'>1</statistic>
+                <statistic aggregation='Max' datatype='integer'>840</statistic>
+                <statistic aggregation='Stdev' datatype='real'>107.85192924107452</statistic>
+                <statistic aggregation='StdevP' datatype='real'>107.83459388305191</statistic>
+                <statistic aggregation='Var' datatype='real'>11632.038641021745</statistic>
+                <statistic aggregation='VarP' datatype='real'>11628.299637922735</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>69292811.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>county_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[county_name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>county_name</remote-alias>
+              <ordinal>5</ordinal>
+              <family>resultsSimplifiedCombined.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1846</approx-count>
+              <scale>1</scale>
+              <width>1073741823</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;Abbeville County&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;Ziebach County&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>3</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>diff</remote-name>
+              <remote-type>3</remote-type>
+              <local-name>[diff]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>diff</remote-alias>
+              <ordinal>6</ordinal>
+              <family>resultsSimplifiedCombined.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2736</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>36216714.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>11641.502410800385</statistic>
+                <statistic aggregation='Min' datatype='integer'>2</statistic>
+                <statistic aggregation='Max' datatype='integer'>1273485</statistic>
+                <statistic aggregation='Stdev' datatype='real'>42739.760578144145</statistic>
+                <statistic aggregation='StdevP' datatype='real'>42732.890890632414</statistic>
+                <statistic aggregation='Var' datatype='real'>1826687134.2770841</statistic>
+                <statistic aggregation='VarP' datatype='real'>1826099963.8706949</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>6102613950944.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint32&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>name</remote-alias>
+              <ordinal>7</ordinal>
+              <family>countyFipsCombined.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1846</approx-count>
+              <scale>1</scale>
+              <width>1073741823</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;Abbeville County&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;Ziebach County&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>4</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>per_dem</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[per_dem]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>per_dem</remote-alias>
+              <ordinal>8</ordinal>
+              <family>resultsSimplifiedCombined.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3110</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>985.89542109800232</statistic>
+                <statistic aggregation='Avg' datatype='real'>0.31690627486274586</statistic>
+                <statistic aggregation='Min' datatype='real'>0.031446541000000001</statistic>
+                <statistic aggregation='Max' datatype='real'>0.92846591899999997</statistic>
+                <statistic aggregation='Stdev' datatype='real'>0.15329648348363134</statistic>
+                <statistic aggregation='StdevP' datatype='real'>0.15327184368865043</statistic>
+                <statistic aggregation='Var' datatype='real'>0.023499811848447259</statistic>
+                <statistic aggregation='VarP' datatype='real'>0.02349225806771809</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>385.52086015307708</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>per_gop</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[per_gop]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>per_gop</remote-alias>
+              <ordinal>9</ordinal>
+              <family>resultsSimplifiedCombined.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3110</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>1979.566068369998</statistic>
+                <statistic aggregation='Avg' datatype='real'>0.63631181882674315</statistic>
+                <statistic aggregation='Min' datatype='real'>0.041220671</statistic>
+                <statistic aggregation='Max' datatype='real'>0.95272727300000004</statistic>
+                <statistic aggregation='Stdev' datatype='real'>0.15622805400274875</statistic>
+                <statistic aggregation='StdevP' datatype='real'>0.15620294300780993</statistic>
+                <statistic aggregation='Var' datatype='real'>0.024407204857485779</statistic>
+                <statistic aggregation='VarP' datatype='real'>0.024399359404301116</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>1335.5276925589992</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>per_point_diff</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[per_point_diff]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>per_point_diff</remote-alias>
+              <ordinal>10</ordinal>
+              <family>resultsSimplifiedCombined.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2554</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>1220.1499999999994</statistic>
+                <statistic aggregation='Avg' datatype='real'>0.39220507875281241</statistic>
+                <statistic aggregation='Min' datatype='real'>0.00040000000000000002</statistic>
+                <statistic aggregation='Max' datatype='real'>0.91639999999999999</statistic>
+                <statistic aggregation='Stdev' datatype='real'>0.20784673802578718</statistic>
+                <statistic aggregation='StdevP' datatype='real'>0.2078133302078384</statistic>
+                <statistic aggregation='Var' datatype='real'>0.043200266507960203</statistic>
+                <statistic aggregation='VarP' datatype='real'>0.043186380212072079</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>612.90185568000004</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>stateFips</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[stateFips]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>stateFips</remote-alias>
+              <ordinal>11</ordinal>
+              <family>countyFipsCombined.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>50</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>95021.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>30.543555126968819</statistic>
+                <statistic aggregation='Min' datatype='integer'>1</statistic>
+                <statistic aggregation='Max' datatype='integer'>56</statistic>
+                <statistic aggregation='Stdev' datatype='real'>14.965145446175105</statistic>
+                <statistic aggregation='StdevP' datatype='real'>14.962740054301307</statistic>
+                <statistic aggregation='Var' datatype='real'>223.95557822517549</statistic>
+                <statistic aggregation='VarP' datatype='real'>223.88358993259266</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+                <statistic aggregation='Median' datatype='integer'>29</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>3598781.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>state</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[state]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>state</remote-alias>
+              <ordinal>12</ordinal>
+              <family>countyFipsCombined.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>50</approx-count>
+              <scale>1</scale>
+              <width>1073741823</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;AL&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;WY&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>state_abbr</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[state_abbr]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>state_abbr</remote-alias>
+              <ordinal>13</ordinal>
+              <family>resultsSimplifiedCombined.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>50</approx-count>
+              <scale>1</scale>
+              <width>1073741823</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;AL&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;WY&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>total_votes</remote-name>
+              <remote-type>3</remote-type>
+              <local-name>[total_votes]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>total_votes</remote-alias>
+              <ordinal>14</ordinal>
+              <family>resultsSimplifiedCombined.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2964</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>129908685.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>41757.854387656706</statistic>
+                <statistic aggregation='Min' datatype='integer'>64</statistic>
+                <statistic aggregation='Max' datatype='integer'>2652072</statistic>
+                <statistic aggregation='Stdev' datatype='real'>113420.84956030085</statistic>
+                <statistic aggregation='StdevP' datatype='real'>113402.61909332458</statistic>
+                <statistic aggregation='Var' datatype='real'>12864289114.980398</statistic>
+                <statistic aggregation='VarP' datatype='real'>12860154017.225664</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>45432647099511.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint32&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>votes_dem</remote-name>
+              <remote-type>3</remote-type>
+              <local-name>[votes_dem]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>votes_dem</remote-alias>
+              <ordinal>15</ordinal>
+              <family>resultsSimplifiedCombined.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2687</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>62426228.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>20066.289938926391</statistic>
+                <statistic aggregation='Min' datatype='integer'>4</statistic>
+                <statistic aggregation='Max' datatype='integer'>1893770</statistic>
+                <statistic aggregation='Stdev' datatype='real'>72008.954454259714</statistic>
+                <statistic aggregation='StdevP' datatype='real'>71997.380243069594</statistic>
+                <statistic aggregation='Var' datatype='real'>5185289521.5956507</statistic>
+                <statistic aggregation='VarP' datatype='real'>5183622761.8651476</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>17378913203004.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint32&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>votes_gop</remote-name>
+              <remote-type>3</remote-type>
+              <local-name>[votes_gop]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>votes_gop</remote-alias>
+              <ordinal>16</ordinal>
+              <family>resultsSimplifiedCombined.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2899</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>61064602.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>19628.608807457411</statistic>
+                <statistic aggregation='Min' datatype='integer'>57</statistic>
+                <statistic aggregation='Max' datatype='integer'>620285</statistic>
+                <statistic aggregation='Stdev' datatype='real'>40447.745480002792</statistic>
+                <statistic aggregation='StdevP' datatype='real'>40441.244194823776</statistic>
+                <statistic aggregation='Var' datatype='real'>1636020114.4150865</statistic>
+                <statistic aggregation='VarP' datatype='real'>1635494232.0253677</statistic>
+                <statistic aggregation='Count' datatype='integer'>3111</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>6286635740472.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint32&quot;</attribute>
+              </attributes>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' dim-percentage='0.421947' measure-ordering='alphabetic' measure-percentage='0.578053' rowDisplayCount='10000' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='384' name='Sheet 1' width='384'>
+      iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAYAAACkx7W/AAAACXBIWXMAAAsTAAALEwEAmpwY
+      AAAFXUlEQVR4nO3VMQEAIAzAMMC/5yFjRxMF/XpnZg4AOW87AIAdBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEfFxoG/IiMv0YAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
