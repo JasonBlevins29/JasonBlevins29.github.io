@@ -12,6 +12,60 @@
   fill: none;
 }
 
+.Pensions{
+    color: #1f77b4;
+    font-weight: 900;
+}
+
+.HealthCare{
+    color: #ff7f0e;
+    font-weight: 900;
+}
+
+.Education{
+    color: #2ca02c;
+    font-weight: 900;
+}
+
+.Defense{
+    color: #d62728;
+    font-weight: 900;
+}
+
+.Welfare{
+    color: #9467bd;
+    font-weight: 900;
+}
+
+.Protection{
+    color: #8c564b;
+    font-weight: 900;
+}
+
+.Transportation{
+    color: #e377c2;
+    font-weight: 900;
+}
+
+.General{
+    color: #1f77b4;
+    font-weight: 900;
+}
+
+.GeneralGovernment{
+    color: #7f7f7f;
+    font-weight: 900;
+}
+
+.OtherSpending{
+    color: #bcbd22;
+    font-weight: 900;
+}
+
+.Interest{
+    color: #17becf;
+    font-weight: 900;
+}
 
 
 #pie{
