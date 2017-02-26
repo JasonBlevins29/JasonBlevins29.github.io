@@ -1,4 +1,4 @@
-createScatterPlot();
-createLineChart();
-createNewScatterPlot();
-createBarChart();
+initializeLineChart();
+drawPieChartOnPageLoad();
+initializeMap();
+initializeNeedle();
